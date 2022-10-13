@@ -3,7 +3,7 @@
     "name": "sgex",
     "umd:name": "sgex",
     "repository": "jdeurt/sgex",
-    "description": "Tagged template literals that produce regex with all whitespace removed",
+    "description": "Tagged template literals that produce regex with surrounding whitespace removed",
     "unpkg": "dist/index.min.js",
     "module": "dist/index.mjs",
     "main": "dist/index.js",

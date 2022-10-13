@@ -1,18 +1,4 @@
-function makeRegExpFromTemplate(
-    flags: string,
-    strings: TemplateStringsArray,
-    expressions: unknown[]
-): RegExp {
-    const raw = strings.raw.reduce((acc, curr, i) => {
-        const expr = expressions[i];
-
-        return `${acc}${curr.replace(/\s+/g, "")}${
-            expr instanceof RegExp ? expr.source : expr ?? ""
-        }`;
-    }, "");
-
-    return new RegExp(raw, flags);
-}
+import { makeRegExpFromTemplate } from "../util/make-regexp-from-template";
 
 export function sgex(
     flags: string

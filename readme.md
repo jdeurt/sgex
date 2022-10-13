@@ -4,7 +4,7 @@
 ![Prerequisite](https://img.shields.io/badge/node-%3E%3D16-blue.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 
-> Tagged template literals that produce regex with all whitespace removed
+> Tagged template literals that produce regex with surrounding whitespace removed
 
 ## Installation
 
@@ -33,7 +33,7 @@ sgex`Hello\nWorld!`;
 /Hello\nWorld/;
 ```
 
--   Remove all whitespace not inside interpolated expressions
+-   Remove all surrounding whitespace not inside interpolated expressions
 
 ```js
 sgex`
@@ -43,7 +43,7 @@ sgex`
 `;
 
 // Returns
-/Hello World!/;
+/Hello World !/;
 ```
 
 -   Handle interpolated regular expressions correctly
