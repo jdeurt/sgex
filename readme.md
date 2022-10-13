@@ -67,6 +67,15 @@ sgex("gi")`^abc$`;
 sgex`^abc$`;
 ```
 
+### Inline comments
+
+```js
+sgex`
+    ${[ /* This is a comment */ ]}
+    ^This is the regular expression$
+`;
+```
+
 ## License
 
 MIT © [Juan de Urtubey](https://jdeurt.xyz)

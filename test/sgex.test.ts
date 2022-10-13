@@ -14,6 +14,19 @@ describe("sgex", () => {
         expect(regex.test("d")).toEqual(false);
     });
 
+    it("Should play well with comments", () => {
+        const comments = sgex`
+            ${
+                [
+                    /* This is a comment */
+                ]
+            }
+            abc
+        `;
+
+        expect(comments.source).toEqual("abc");
+    });
+
     it("Should allow for flags to be provided", () => {
         const regexCaseSensitive = sgex`a`;
         const regexCaseInsensitive = sgex("i")`a`;
