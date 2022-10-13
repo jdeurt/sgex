@@ -11,13 +11,13 @@
 ### NPM
 
 ```bash
-npm i inline-conditional
+npm i sgex
 ```
 
 ### Yarn
 
 ```bash
-yarn add inline-conditional
+yarn add sgex
 ```
 
 ## Usage
