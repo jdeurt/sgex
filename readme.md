@@ -22,19 +22,38 @@ yarn add sgex
 
 ## Usage
 
+An `sgex` tag will:
+
+-   Ignore escape sequences
+
 ```js
-sgex`
-    \`\`\`js\\n
-    console\\.log\\("Hello${" "}World!"\\);\\n
-    \`\`\`
-`;
+sgex`Hello\nWorld!`;
+
+// Returns
+/Hello\nWorld/;
 ```
 
-is equivalent to
+-   Remove all whitespace not inside interpolated expressions
 
-````js
-/```js\nconsole\.log\("Hello World!"\);\n```/;
-````
+```js
+sgex`
+    Hello
+    ${" "}
+    World !
+`;
+
+// Returns
+/Hello World!/;
+```
+
+-   Handle interpolated regular expressions correctly
+
+```js
+sgex`Hello${/ World/}!`;
+
+// Returns
+/Hello World!/;
+```
 
 ### Regular expression flags
 
@@ -46,19 +65,6 @@ sgex("gi")`^abc$`;
 
 // No flags
 sgex`^abc$`;
-```
-
-### Need whitespace? No Problem
-
-You can force whitespace to be included by using `${interpolation}`. Interpolated regular expressions will function as expected.
-
-```js
-sgex`
-    a${" "}b${/ c/}
-`;
-
-// Same as
-/a b c/;
 ```
 
 ## License

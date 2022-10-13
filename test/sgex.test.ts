@@ -34,18 +34,18 @@ describe("sgex", () => {
 
     it("Should not fail on complex patterns", () => {
         const pattern = sgex("gm")`
-            \`\`\`(?<lang>
+            ${"```"}(?<lang>
                 js|
                 ts|
                 python|
                 java|
                 cpp|
                 c
-            )?\\n
+            )?\n
                 (?<content>
                     .*?
-                )\\n
-            \`\`\`
+                )\n
+            ${"```"}
         `;
 
         expect(pattern.test("```js\nabc\n```")).toEqual(true);
