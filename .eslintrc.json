@@ -6,5 +6,10 @@
         "prettier",
         "plugin:unicorn/recommended",
         "plugin:@typescript-eslint/recommended"
-    ]
+    ],
+
+    "rules": {
+        "unicorn/no-array-reduce": false,
+        "unicorn/prevent-abbreviations": false
+    }
 }

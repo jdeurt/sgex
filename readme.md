@@ -1,21 +1,65 @@
-## Publishing
+# sgex
 
-Once all `TODO` notes have been updated & your new module is ready to be shared, all that's left to do is decide its new version &mdash; AKA, do the changes consitute a `patch`, `minor`, or `major` release?
+[![Version](https://img.shields.io/npm/v/sgex.svg)](https://www.npmjs.com/package/sgex)
+![Prerequisite](https://img.shields.io/badge/node-%3E%3D16-blue.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 
-Once decided, you can run the following:
+> Tagged template literals that produce regex with all whitespace removed
 
-```sh
-$ npm version <patch|minor|major> && git push origin master --tags && npm publish
-# Example:
-# npm version patch && git push origin master --tags && npm publish
+## Installation
+
+### NPM
+
+```bash
+npm i inline-conditional
 ```
 
-This command sequence will:
+### Yarn
 
--   version your module, updating the `package.json` "version"
--   create and push a `git` tag (matching the new version) to your repository
--   build your module (via the `prepublishOnly` script)
--   publish the module to the npm registry
+```bash
+yarn add inline-conditional
+```
+
+## Usage
+
+```js
+sgex`
+    \`\`\`js\\n
+    console\\.log\\("Hello${" "}World!"\\);\\n
+    \`\`\`
+`;
+```
+
+is equivalent to
+
+````js
+/```js\nconsole\.log\("Hello World!"\);\n```/;
+````
+
+### Regular expression flags
+
+You can specify flags that should be used for your expression by using the flags overload:
+
+```js
+// Flags
+sgex("gi")`^abc$`;
+
+// No flags
+sgex`^abc$`;
+```
+
+### Need whitespace? No Problem
+
+You can force whitespace to be included by using `${interpolation}`. Interpolated regular expressions will function as expected.
+
+```js
+sgex`
+    a${" "}b${/ c/}
+`;
+
+// Same as
+/a b c/;
+```
 
 ## License
 
